@@ -1,0 +1,119 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    7.dönem
+{% endblock %}
+
+{% block content %}
+
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-9wq8{border-color:inherit;text-align:center;vertical-align:middle}
+.tg .tg-8bgf{font-style:italic;border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-fymr{font-weight:bold;border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-vrnj{font-style:italic;border-color:inherit;text-align:center;vertical-align:middle}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-fymr">Oyuncular</th>
+    <th class="tg-vrnj">P1</th>
+    <th class="tg-vrnj" colspan="2">P2</th>
+    <th class="tg-8bgf" colspan="2">P3</th>
+    <th class="tg-8bgf" colspan="2">P4</th>
+    <th class="tg-8bgf" colspan="2">P5</th>
+    <th class="tg-8bgf" colspan="2">P6</th>
+    <th class="tg-8bgf" colspan="2">P7</th>
+    <th class="tg-8bgf">P8</th>
+  </tr>
+  <tr>
+    <td class="tg-fymr">Roller</td>
+    <td class="tg-9wq8">Alıcı</td>
+    <td class="tg-9wq8">Karar Verici</td>
+    <td class="tg-c3ow">Alıcı</td>
+    <td class="tg-c3ow">Karar Verici</td>
+    <td class="tg-c3ow">Alıcı</td>
+    <td class="tg-c3ow">Karar Verici</td>
+    <td class="tg-c3ow">Alıcı</td>
+    <td class="tg-c3ow">Karar Verici</td>
+    <td class="tg-c3ow">Alıcı</td>
+    <td class="tg-c3ow">Karar Verici</td>
+    <td class="tg-c3ow">Alıcı</td>
+    <td class="tg-c3ow">Karar Verici</td>
+       <td class="tg-c3ow"> {% if partner_color == 'RED' %}
+      <p style="color: red; font-size:100%;"> Alıcı </p>
+    {% else%}
+      <p style="color: blue; font-size:100%"> Alıcı </p>
+    {% endif %} </td>
+    <td class="tg-c3ow">{% if your_color == 'RED' %}
+      <p style="color: red; font-size:100%;">  Karar Verici
+    {% else %}
+      <p style="color: blue; font-size:100%">  Karar Verici
+    {% endif %} </td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">Transfer miktarı</td>
+    <td class="tg-c3ow" colspan="2">{{group.sent_2}}</td>
+    <td class="tg-c3ow" colspan="2">{{group.sent_3}}</td>
+    <td class="tg-c3ow" colspan="2">{{group.sent_4}}</td>
+    <td class="tg-c3ow" colspan="2">{{group.sent_5}}</td>
+    <td class="tg-c3ow" colspan="2">{{group.sent_6}}</td>
+    <td class="tg-c3ow" colspan="2">{{group.sent_7}}</td>
+    <td class="tg-c3ow" colspan="2"></td>
+  </tr>
+  <tr>
+    <td class="tg-fymr">Kazanç</td>
+    <td class="tg-0pky">{{p1_receiver}}</td>
+    <td class="tg-0pky">{{p2_decider}}</td>
+    <td class="tg-0pky">{{p2_receiver}}</td>
+    <td class="tg-0pky">{{p3_decider}}</td>
+    <td class="tg-0pky">{{p3_receiver}}</td>
+    <td class="tg-0pky">{{p4_decider}}</td>
+    <td class="tg-0pky">{{p4_receiver}}</td>
+    <td class="tg-0pky">{{p5_decider}}</td>
+    <td class="tg-0pky">{{p5_receiver}}</td>
+    <td class="tg-0pky">{{p6_decider}}</td>
+    <td class="tg-0pky">{{p6_receiver}}</td>
+    <td class="tg-0pky">{{p7_decider}}</td>
+    <td class="tg-0pky"></td>
+    <td class="tg-0pky"></td>
+  </tr>
+</table>
+<p>
+  <p>Your group : <b>{% if your_color == 'RED' %}
+      <p style="color: red; font-size:100%;"> RED </p>
+    {% else %}
+      <p style="color: blue; font-size:100%"> BLUE </p>
+    {% endif %} </b></p>
+
+
+ <p>Your partner group : <b>{% if partner_color == 'RED' %}
+      <p style="color: red; font-size:100%;"> RED </p>
+    {% else%}
+      <p style="color: blue; font-size:100%"> BLUE </p>
+
+    {% endif %} </b></p>
+ <p>
+
+<p>
+    Bu dönemin Karar vericisi sizsiniz.
+    Başlangıç puanınızın ( {{Constants.endowment_Decider}}) ne kadarını aktarıyorsunuz (0-7)?
+</p>
+
+    {% formfield group.sent_8 label=prompt %}
+<p>
+     Size ne kadar verileceğini bekliyorsunuz?
+</p>
+     {% formfield group.expect_8 label=prompt %}
+
+</p>
+
+    <p>{% next_button %}</p>
+    {% include Constants.table_template %}
+
+{% endblock %}

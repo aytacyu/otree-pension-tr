@@ -1,0 +1,27 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    4.dönem
+{% endblock %}
+
+{% block content %}
+
+
+<p>
+    Bu dönemin Karar vericisi sizsiniz.
+    Başlangıç puanınızın ( {{Constants.endowment_Decider}}) ne kadarını aktarıyorsunuz (0-7)?
+</p>
+
+    {% formfield group.sent_5 label=prompt %}
+<p>
+     Size ne kadar verileceğini bekliyorsunuz?
+</p>
+     {% formfield group.expect_5 label=prompt %}
+
+</p>
+
+    <p>{% next_button %}</p>
+    {% include Constants.table_template %}
+
+{% endblock %}

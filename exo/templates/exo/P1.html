@@ -1,0 +1,30 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+   İlk alıcı sizsiniz.
+{% endblock %}
+
+{% block content %}
+<p>Grubun <b>{% if your_color == 'RED' %}
+      <p style="color: red; font-size:100%;"> RED </p>
+    {% else %}
+      <p style="color: blue; font-size:100%"> BLUE </p>
+    {% endif %} </b></p>
+
+
+ <p>Karar vericinin grubu: <b>{% if partner_color == 'RED' %}
+      <p style="color: red; font-size:100%;"> RED </p>
+    {% else%}
+      <p style="color: blue; font-size:100%"> BLUE </p>
+
+    {% endif %} </b></p>
+<p>
+    Sadece "next" butonuna basın.
+
+</p>
+
+    <p>{% next_button %}</p>
+    {% include Constants.table_template %}
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% load otree %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+{% block title %}
+Deneyimize hoşgeldiniz.
+{% endblock %}
+
+    </h3>
+    <p>
+        Deney 10 turdan oluşuyor ve her tur 7 dönemden oluşuyor.
+        Her dönemde, iki katılımcı bir Alıcı ve bir Karar Verici rolü almaktadır.
+        Alıcının bağışı/başlangıç puanı 1 ve Karar Vericinin bağışı/başlangıç puanı 9'dur.
+        <p>
+        Alıcının ve Karar Vericinin nihai varlıkları Karar Vericinin Alıcıya devrettiği transfer T’ye bağlıdır:
+        Alıcı olduğunda ER = 1 + Ti,
+        Karar Verici olduğunda ED = 9 - Tj.
+        <p>
+        Her turda, prensipte, bir dönemde karar vericisiniz ve bir sonraki dönemde alıcısınız.
+        Bir turdaki puan cinsinden kazancınız,
+        Karar verdiğiniz dönemdeki nihai varlıklarınız ile
+        Alıcı olduğunuz dönemdeki nihai varlıklarınızın ürünü olarak belirlenir: ED X ER.
+        <p>
+        İlk dönemde Alıcı olan katılımcı, bu turda Karar Verici rolünde olmayacaktır.
+        Bu katılımcının Karar Verici olarak nihai varlıkları ED = 2 olarak belirlenir/varsayılır.
+        <p>
+        Son dönemde Karar Verici olan katılımcı da o turda Alıcı rolünde olmayacaktır.
+        Alıcı olarak nihai varlıkları, o turdaki mevcut dönem Alıcısının da dahil olduğu tüm yedi Alıcının ortalama nihai varlıkları olarak belirlenir/varsayılır. Her dönemde mevcut Karar Verici, önceki dönemlerdeki karar vericilerin transferi hakkında bilgi alır.
+        <p>
+        Katılımcıların belirli bir turun dönemlerine katılma sırası bilgisayar tarafından tekrar tekrar tamamen rastgele bir şekilde belirlenir.
+        Bir turda sizin sıranızın ne zaman olacağını veya belirli bir dönemde kiminle eşleştirileceğinizi asla bilemezsiniz.
+
+        
+        </p>
+        </p>
+
+
+   <p>{% next_button %}</p>
+    {% include Constants.table_template %}
+
+
+
+
+    </p>
+</div>
+</div>
